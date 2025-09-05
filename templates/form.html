@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Sales Prediction</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        margin-top: 50px;
+      }
+      form {
+        margin-bottom: 20px;
+      }
+      input {
+        margin: 5px;
+        padding: 8px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+      button {
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+      }
+      button:hover {
+        background-color: #0056b3;
+      }
+      table {
+        margin: 20px auto;
+        border-collapse: collapse;
+        width: 60%;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: center;
+      }
+      th {
+        background-color: #007bff;
+        color: white;
+      }
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>📊 Sales Prediction App</h1>
+    <form method="post">
+      <input
+        type="number"
+        step="any"
+        name="tv"
+        placeholder="TV Budget"
+        required
+      />
+      <input
+        type="number"
+        step="any"
+        name="radio"
+        placeholder="Radio Budget"
+        required
+      />
+      <input
+        type="number"
+        step="any"
+        name="newspaper"
+        placeholder="Newspaper Budget"
+        required
+      />
+      <button type="submit">Predict</button>
+    </form>
+
+    {% if prediction is not none %}
+    <h2>Prediction Result</h2>
+    <table>
+      <tr>
+        <th>TV</th>
+        <th>Radio</th>
+        <th>Newspaper</th>
+        <th>Predicted Sales</th>
+      </tr>
+      <tr>
+        <td>{{ tv }}</td>
+        <td>{{ radio }}</td>
+        <td>{{ newspaper }}</td>
+        <td><b>{{ prediction }}</b></td>
+      </tr>
+    </table>
+    {% endif %}
+  </body>
+</html>
